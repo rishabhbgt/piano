@@ -1,6 +1,20 @@
-let keyC = document.getElementById("keyC");
-let audio = new Audio("sounds/C.mp3");
+let keys = document.querySelectorAll(".key");
 
-keyC.addEventListener('click',function(){
+
+function playNote(note){
+    let audio = new Audio(`sounds/${note}.mp3`);
     audio.play();
+}
+
+
+
+keys.forEach(function(elem){
+    
+    elem.addEventListener("click",function(){
+        
+        let note = elem.id.replace("key","");
+
+        playNote(note);
+    });
+    
 });
